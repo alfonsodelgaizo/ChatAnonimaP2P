@@ -11,7 +11,7 @@ FROM openjdk:8-jre-alpine
 WORKDIR /app
 ENV MASTERIP=127.0.0.1
 ENV ID=0
-COPY --from=1 /app/target/ChatAnonima-1.0-jar-with-dependencies.jar /app
+COPY --from=1 /app/target/ChatAnonimaP2P-1.0-jar-with-dependencies.jar /app
 
 
 CMD /usr/bin/java -jar  ChatAnonima-1.0-jar-with-dependencies.jar -m $MASTERIP -id $ID
