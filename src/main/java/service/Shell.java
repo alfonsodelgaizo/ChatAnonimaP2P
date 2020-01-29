@@ -6,21 +6,20 @@ import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 import org.beryx.textio.TextTerminal;
 import org.kohsuke.args4j.CmdLineParser;
-import org.kohsuke.args4j.Option;
 
 
 
 public class Shell {
 	
-	@Option(name="-m", aliases="--masterip", usage="the master peer ip address", required=true)
-	private static String master;
+	//@Option(name="-m", aliases="--masterip", usage="the master peer ip address", required=true)
+	//private static String master;
 
-	@Option(name="-id", aliases="--identifierpeer", usage="the unique identifier for this peer", required=true)
-    private static int id;
+	//@Option(name="-id", aliases="--identifierpeer", usage="the unique identifier for this peer", required=true)
+   // private static int id;
 	
-	//private static String master = "localhost";
+	private static String master = "localhost";
 
-	//private static int id=2;
+	private static int id=2;
 
 	public static void main(String[] args)  throws Exception {
 		 
@@ -53,36 +52,36 @@ public class Shell {
                 
 	                case 1:
 							terminal.printf("\n Crea una nuova Chat\n");
-							String name = textIO.newStringInputReader()
+							String nomeChat = textIO.newStringInputReader()
 									.read("Imposta il nome della Chat: ");
 							String password = textIO.newStringInputReader()
 									.read("Imposta la password della Chat:");
-							if(peer.createRoom(name,password))
-								terminal.printf("\n LA CHAT -- %s -- E' STATA CREATA SUCCESSO \n\n",name);
+							if(peer.createRoom(nomeChat,password))
+								terminal.printf("\n LA CHAT -- %s -- E' STATA CREATA SUCCESSO \n\n",nomeChat);
 							else
 								terminal.printf("\n ERRORE CREAZIONE CHAT \n");
 							break;
 							
 	                case 2:
 						terminal.printf("\nEntra nella Chat\n");
-						String sname = textIO.newStringInputReader()
+						String j_nomeChat = textIO.newStringInputReader()
 								.read("Inserisci il nome della Chat: ");
 						String j_password = textIO.newStringInputReader()
 								.read("Inserisci la password : ");
-						if(peer.joinRoom(sname,j_password))
-							terminal.printf(" \n BENVENUTO NELLA CHAT -- %s -- \n",sname);
+						if(peer.joinRoom(j_nomeChat,j_password))
+							terminal.printf(" \n BENVENUTO NELLA CHAT -- %s -- \n",j_nomeChat);
 						else
 							terminal.printf("\n ERRORE ENTRATA CHAT \n");
 						break;
 					
 	                case 3:
 	                	terminal.printf("\n Invia un messaggio \n");
-						String tname = textIO.newStringInputReader()
+						String s_nomeChat = textIO.newStringInputReader()
 								.read(" Inserisci il nome della Chat:");
-						String message = textIO.newStringInputReader()
+						String messaggio = textIO.newStringInputReader()
 								.read(" \n Scrivi Messaggio : ");
-						if(peer.sendMessage(tname,message))
-							terminal.printf("\n MESSAGGIO INVIATO CORRETTAMENTE NELLA STANZA -- %s --\n\n",tname);
+						if(peer.sendMessage(s_nomeChat,messaggio))
+							terminal.printf("\n MESSAGGIO INVIATO CORRETTAMENTE NELLA CHAT -- %s --\n\n",s_nomeChat);
 						else
 							terminal.printf("\n ERRORE INVIO MESSAGGIO\n");
 
@@ -91,10 +90,12 @@ public class Shell {
 						
 	            	case 4:
 						terminal.printf("\nAbbandona la chat\n");
-						String nomeChat = textIO.newStringInputReader()
+						String l_nomeChat = textIO.newStringInputReader()
 								.read("Inserisci il nome della Chat :");
-						if(peer.leaveRoom(nomeChat))
-							terminal.printf("\n HAI ABBANDONATO LA CHAT  -- %s -- \n\n",nomeChat);
+						String l_password = textIO.newStringInputReader()
+								.read("Inserisci la password : ");
+						if(peer.leaveRoom(l_nomeChat,l_password))
+							terminal.printf("\n HAI ABBANDONATO LA CHAT  -- %s -- \n\n",l_nomeChat);
 						else
 							terminal.printf("\n ERRORE ABBANDONO CHAT \n");
 						break;
@@ -117,7 +118,6 @@ public class Shell {
 					
 	            	case 6:
 	            		  peer.leaveNetwork();
-					      terminal.printf(" CIAO !! \n");
 						  System.exit(0);
 						break;
 							

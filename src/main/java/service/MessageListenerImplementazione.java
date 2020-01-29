@@ -9,7 +9,6 @@ public class MessageListenerImplementazione implements MessageListener {
 	    private TextTerminal<?> shell= null;
 	    private int peerID;
 	    private Messaggio messaggio = null;
-	    private boolean bool = false;
 
 	    public  MessageListenerImplementazione(int peerID) {
 	        this.peerID = peerID;
@@ -17,8 +16,7 @@ public class MessageListenerImplementazione implements MessageListener {
 	    
 
 		public Object parseMessage(Object obj) {
-			  this.messaggio = (Messaggio) obj;
-		        bool = true;
+			    this.messaggio = (Messaggio) obj;
 		        shell.printf("( MESSAGGIO ["+ messaggio.getOre()+":"+messaggio.getMinuti()+"], CHAT :"+ messaggio.getnomeChat()+" ) \n");
 		        shell.printf(messaggio.getContenuto()+"\n\n");
 		        return "success";
@@ -46,9 +44,7 @@ public class MessageListenerImplementazione implements MessageListener {
 	        this.peerID = peerID;
 	    }
 
-	    public boolean getBool(){
-	        return this.bool;
-	    }
+	  
 
 
 

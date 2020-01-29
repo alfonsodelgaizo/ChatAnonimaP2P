@@ -18,7 +18,7 @@ public interface ChatAnonima {
 	 * @param _room_name the name identify the public chat room.
 	 * @return true if leave success, false otherwise.
 	 */
-	public boolean leaveRoom(String _room_name);
+	public boolean leaveRoom(String _room_name, String password);
 	/**
 	 * Sends a string message to all members of a  a public room.
 	 * @param _room_name the name identify the public chat room.

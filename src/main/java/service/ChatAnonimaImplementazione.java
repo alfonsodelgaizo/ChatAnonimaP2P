@@ -46,7 +46,6 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	       
 	        peer.objectDataReply(new ObjectDataReply() {
 	            public Object reply(PeerAddress sender, Object request) throws Exception {
-	            	// Ottengo il messaggio
 	                Messaggio message = (Messaggio) request;
 	                if (!peer.peerID().equals(message.getPeerDestinazione().peerId())) {
 	                    //Se non sono la destinazione devo inoltrare il messaggio ad un altro Peer
@@ -67,6 +66,11 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 
 	public boolean createRoom(String _room_name, String password) {
 		try {
+			if (_room_name.equals("-") || _room_name.equals(".")) {
+				System.out.println("NOME NON VALIDO");
+				return false;
+			}else {
+		    
 			Chat chat = new Chat(_room_name, password);
 	        FutureGet futureGet = dht.get(Number160.createHash(_room_name)).start();
 	        futureGet.awaitUninterruptibly();
@@ -78,6 +82,7 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 				joinRoom(_room_name,password);
 	        	return true;
 	        }
+			}
 
 		}catch (Exception e) {
 			    e.printStackTrace();
@@ -119,14 +124,17 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	        return false;
 	}
 
-	public boolean leaveRoom(String _room_name) {
+	public boolean leaveRoom(String _room_name,String password) {
 		// TODO Auto-generated method stub
 		try {
 			//Ottengo la Chat
             FutureGet futureGet = dht.get(Number160.createHash(_room_name)).start();
             futureGet.awaitUninterruptibly();
             if (futureGet.isSuccess()) {
+      
             	Chat chat = (Chat) futureGet.dataMap().values().iterator().next().object();
+            	
+            	if (chat.getPassword().equals(password)) {
             	//Se il Peer partecipa alla Chat allora eliminalo dall lista dei partecipanti
             	// e inserisce la Chat con la nuova lista dei Peer nella DHT
             	if (chat.getPeer().contains(peer.peerAddress())) {
@@ -143,6 +151,10 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
                     	return false;
                     }
             	}
+            	} else {
+            		return false;
+            	}
+            	
             }
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -208,15 +220,61 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	}
 	
 	
+	
+	
      public boolean leaveNetwork() {
-		for(String nomeChat: new ArrayList<String>(this.listaChat)) leaveRoom(nomeChat);
+		for(String nomeChat: new ArrayList<String>(this.listaChat)) abbandonaChat(nomeChat);
 		dht.peer().announceShutdown().start().awaitUninterruptibly();
 		return true;
+	}
+     
+     
+     public void abbandonaChat(String _room_name) {
+		 try {
+				//Ottengo la Chat
+	            FutureGet futureGet = dht.get(Number160.createHash(_room_name)).start();
+	            futureGet.awaitUninterruptibly();
+	            if (futureGet.isSuccess()) {
+	      
+	            	Chat chat = (Chat) futureGet.dataMap().values().iterator().next().object();
+	            	
+	            	
+	            	//Se il Peer partecipa alla Chat allora eliminalo dall lista dei partecipanti
+	            	// e inserisce la Chat con la nuova lista dei Peer nella DHT
+	            	if (chat.getPeer().contains(peer.peerAddress())) {
+	            		chat.eliminaPeer(peer.peerAddress());
+	                    FuturePut futurePut = dht.put(Number160.createHash(_room_name)).data((new Data(chat))).start();
+	                    futurePut.awaitUninterruptibly();
+	                    
+	                    if (futurePut.isSuccess()){
+	                    	//elimina la Chat dalla lista delle Chat in cui il Peer partecipa
+	                        listaChat.remove(_room_name);
+	                    } 
+	                    else {
+	                    	 System.out.print("ERRORE");
+	                    }
+	            	
+	            	}
+	            	
+	            }
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+   	 System.out.print("ERRORE");
 	}
 	
 
 	
-	 public PeerAddress getPeerInoltro(PeerAddress sorgente, PeerAddress destinazione, Chat chat) {
+	
+
+
+	
+
+
+	
+
+
+	public PeerAddress getPeerInoltro(PeerAddress sorgente, PeerAddress destinazione, Chat chat) {
 		   
 		    //Genero un nuovo set per gli Indirizzi
 	        Set<PeerAddress> setPeer = new HashSet<PeerAddress>();
@@ -248,6 +306,7 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	            }
 	        });
 	    }
+	  
 	  
 	 
 	  
