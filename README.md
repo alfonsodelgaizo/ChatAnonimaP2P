@@ -64,7 +64,7 @@ Ora puoi lanciare i Peer cambiando solo il Peer ID perché l'ID del Peer deve es
 
 
 ### NOTA
-Per il corretto funzionamento della Chat devono entrare nella chat almeno 3 Peer.
+Per il corretto funzionamento dell'applicazione devono entrare nella chat almeno 3 Peer.
 
 ### Sviluppato da:
 Alfonso Del Gaizo (mat.0522500707)
