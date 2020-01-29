@@ -6,20 +6,21 @@ import org.beryx.textio.TextIO;
 import org.beryx.textio.TextIoFactory;
 import org.beryx.textio.TextTerminal;
 import org.kohsuke.args4j.CmdLineParser;
+import org.kohsuke.args4j.Option;
 
 
 
 public class Shell {
 	
-	//@Option(name="-m", aliases="--masterip", usage="the master peer ip address", required=true)
-	//private static String master;
+	@Option(name="-m", aliases="--masterip", usage="the master peer ip address", required=true)
+    private static String master;
 
-	//@Option(name="-id", aliases="--identifierpeer", usage="the unique identifier for this peer", required=true)
-   // private static int id;
+	@Option(name="-id", aliases="--identifierpeer", usage="the unique identifier for this peer", required=true)
+    private static int id;
 	
-	private static String master = "localhost";
+	//private static String master = "localhost";
 
-	private static int id=2;
+	//private static int id=1;
 
 	public static void main(String[] args)  throws Exception {
 		 
@@ -134,7 +135,7 @@ public class Shell {
 	}
 	
 	
-	public static void printMenu(TextTerminal terminal) {
+	public static void printMenu(TextTerminal<?> terminal) {
 		terminal.println("\n");
 		terminal.println("MENU");
 
