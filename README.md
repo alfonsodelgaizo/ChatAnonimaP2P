@@ -63,5 +63,5 @@ Ora puoi lanciare i Peer cambiando solo il Peer ID perché l'ID del Peer deve es
 `docker run -i --name PEER-2 -e MASTERIP="172.17.0.2" -e ID=2 chatp2p`
 
 
-### Developed by
+### Sviluppato da:
 Alfonso Del Gaizo (mat.0522500707)
