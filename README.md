@@ -13,12 +13,12 @@ Questo sistema permette agli utente di creare una nuova chat, entrare nella chat
 - leaveNetwork : abbandona la rete 
 
 ## Tecnologie
-Java
-Apache Maven
-Tom P2P
-JUnit
-Eclipse
-Docker
+- Java
+- Apache Maven
+- Tom P2P
+- JUnit
+- Eclipse
+- Docker
 
 ## Struttura Progetto
 
