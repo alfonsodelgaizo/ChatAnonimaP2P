@@ -67,7 +67,6 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	public boolean createRoom(String _room_name, String password) {
 		try {
 			if (_room_name.equals("-") || _room_name.equals(".")) {
-				System.out.println("NOME NON VALIDO");
 				return false;
 			}else {
 		    
@@ -251,7 +250,7 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	                        listaChat.remove(_room_name);
 	                    } 
 	                    else {
-	                    	 System.out.print("ERRORE");
+	                    	 System.out.print("");
 	                    }
 	            	
 	            	}
@@ -260,7 +259,7 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
-   	 System.out.print("ERRORE");
+   	 System.out.print("");
 	}
 	
 
@@ -301,7 +300,7 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	        futureDirect.addListener(new BaseFutureAdapter<FutureDirect>() {
 	            public void operationComplete(FutureDirect future) throws Exception {
 	                if (!future.isSuccess()) {
-	                    System.out.println("ERRORE INVIO MESSAGGIO");
+	                    System.out.println("");
 	                }
 	            }
 	        });

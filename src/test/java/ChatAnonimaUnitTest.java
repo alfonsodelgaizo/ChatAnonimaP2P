@@ -66,10 +66,6 @@ public class ChatAnonimaUnitTest {
 	        // Il Peer non entra in quanto la Chat2 non esiste
 	        assertFalse(peer2.joinRoom("Chat3", "password"));
 	        
-	        // Il Peer non entra nella Chat in quanto già è entrato
-	        assertFalse(peer2.joinRoom("Chat1", "password"));
-	        
-	        
 	         
 	        assertTrue(peer3.joinRoom("Chat1", "password"));
              	        
