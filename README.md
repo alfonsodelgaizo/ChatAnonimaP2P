@@ -6,7 +6,7 @@ Questo sistema permette agli utente di creare una nuova chat, entrare nella chat
 - createRoom : crea una nuova chat
 - joinRoom : entra nella nuova chat
 - sendMessage : invia un messaggio nella chat in maniera anonima
-- leaveChat : abbandona la chat
+- leaveRoom : abbandona la chat
 
 ## Funzionalità aggiuntive
 - getListaChat : visualizza tutte le Chat in cui un Peer partecipa
