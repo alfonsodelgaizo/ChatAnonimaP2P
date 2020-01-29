@@ -59,6 +59,7 @@ per individuare il container ID
 Ora puoi lanciare i Peer cambiando solo il Peer ID perché l'ID del Peer deve essere unico
 
 `docker run -i --name PEER-1 -e MASTERIP="172.17.0.2" -e ID=1 chatp2p`
+
 `docker run -i --name PEER-2 -e MASTERIP="172.17.0.2" -e ID=2 chatp2p`
 
 
