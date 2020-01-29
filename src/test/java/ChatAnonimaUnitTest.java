@@ -62,10 +62,10 @@ public class ChatAnonimaUnitTest {
 	        peer2.createRoom("Chat5", "chat");
 	        
 	        
-	        // Il Peer non entra in quanto la Chat2 non esiste
+	        // Il Peer non entra in quanto la Chat4 non esiste
 	        assertFalse(peer2.joinRoom("Chat4", "password"));
 	        
-	        //Il Peer3 entra nella chatr 5 con password: chat
+	        //Il Peer3 entra nella chat con nome Chat5 con password: chat
 	        assertTrue(peer3.joinRoom("Chat5", "chat"));     
 	        
 	       
@@ -125,7 +125,7 @@ public class ChatAnonimaUnitTest {
 	        peer2.joinRoom("Chat6", "password");
 
 	        
-	        // Il Peer abbandona la Chat
+	        // Il Peer1 abbandona la chat con nome Chat6 con successo
 	        assertTrue(peer1.leaveRoom("Chat6", "password"));
 	        
 	        assertFalse(peer1.leaveRoom("Chat6", "password"));
