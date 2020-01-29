@@ -112,6 +112,9 @@ public class ChatAnonimaImplementazione implements ChatAnonima {
 	                     this.listaChat.add(_room_name);
 	                     return true;
 	                }
+	                else {
+	                	return false;
+	                }
                     } // fine if password
 	                else {
                     	return false;

@@ -58,17 +58,15 @@ public class ChatAnonimaUnitTest {
 	        peer3 = new ChatAnonimaImplementazione(3, "127.0.0.1", listener3);
 
 	        
-	        peer0.createRoom("Chat1", "password");
+	        peer0.createRoom("Chat3", "password");
+	        peer2.createRoom("Chat5", "chat");
 	        
-	        //Il Peer entra nella Chat
-	        assertTrue(peer2.joinRoom("Chat1", "password"));
 	        
 	        // Il Peer non entra in quanto la Chat2 non esiste
-	        assertFalse(peer2.joinRoom("Chat3", "password"));
+	        assertFalse(peer2.joinRoom("Chat4", "password"));
 	        
-	         
-	        assertTrue(peer3.joinRoom("Chat1", "password"));
-             	        
+	        //Il Peer3 entra nella chatr 5 con password: chat
+	        assertTrue(peer3.joinRoom("Chat5", "chat"));     
 	        
 	       
   
