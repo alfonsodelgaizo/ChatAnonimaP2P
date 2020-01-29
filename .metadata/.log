@@ -1,0 +1,66 @@
+!SESSION 2020-01-29 11:08:05.804 -----------------------------------------------
+eclipse.buildId=4.12.0.I20190605-1800
+java.version=1.8.0_211
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=it_IT
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/alfonsodelgaizo/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/alfonsodelgaizo/.eclipse_keyring
+
+!ENTRY org.eclipse.ui.ide 4 4 2020-01-29 11:08:10.307
+!MESSAGE Could not read version file /Users/alfonsodelgaizo/Desktop/eclipse-workspace/.metadata/version.ini
+
+!ENTRY org.eclipse.ui.ide 4 4 2020-01-29 11:08:10.308
+!MESSAGE /Users/alfonsodelgaizo/Desktop/eclipse-workspace/.metadata/version.ini (Operation not permitted)
+!STACK 0
+java.io.FileNotFoundException: /Users/alfonsodelgaizo/Desktop/eclipse-workspace/.metadata/version.ini (Operation not permitted)
+	at java.io.FileInputStream.open0(Native Method)
+	at java.io.FileInputStream.open(FileInputStream.java:195)
+	at java.io.FileInputStream.<init>(FileInputStream.java:138)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.readWorkspaceVersion(IDEApplication.java:534)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.compareWorkspaceAndIdeVersions(IDEApplication.java:505)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.checkValidWorkspace(IDEApplication.java:437)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.promptForWorkspace(IDEApplication.java:405)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.checkInstanceLocation(IDEApplication.java:282)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:145)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:400)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:660)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:597)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
+
+!ENTRY org.eclipse.core.net 1 0 2020-01-29 11:08:21.721
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.egit.core 1 0 2020-01-29 11:08:21.751
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:33.410
+!MESSAGE Starting the AWS toolkit core plugin...
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:37.755
+!MESSAGE No profile found: default
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:37.758
+!MESSAGE No profile found: alfonso
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:37.758
+!MESSAGE No profile found: your username
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:37.790
+!MESSAGE Monitoring content of /Users/alfonsodelgaizo/.aws/credentials
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:38.347
+!MESSAGE AWS toolkit core plugin initialized after 4938 milliseconds.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:38.355
+!MESSAGE The current accountId is not found in the system. Switching to the default account.
+
+!ENTRY com.amazonaws.eclipse.core 1 0 2020-01-29 11:08:39.234
+!MESSAGE Initialized a new Cognito identity us-east-1:bb0112f1-441b-4349-89c9-3c1a4d80cc1d
