@@ -100,7 +100,6 @@ public class ChatAnonimaUnitTest {
 	        
 	        peer3.joinRoom("Chat1", "password");
 	        assertTrue(peer3.sendMessage("Chat1", "Ciao, sono il Peer3"));
-	        assertTrue(peer2.sendMessage("Chat1", "Ciao, sono il Peer2"));
 	        assertTrue(peer0.sendMessage("Chat1", "Ciao, sono il Peer0"));
 
 	        
@@ -110,23 +109,32 @@ public class ChatAnonimaUnitTest {
 	
 	@Test	
 	public void testLeaveRoom() throws Exception {
-		    listener0 = new MessageListenerImplementazione(0);
 		    listener1 = new MessageListenerImplementazione(1);
 		    listener2 = new MessageListenerImplementazione(2);
+		    listener3 = new MessageListenerImplementazione(3);
 
 
-	        peer0 = new ChatAnonimaImplementazione(0, "127.0.0.1", listener0);
 	        peer1 = new ChatAnonimaImplementazione(1, "127.0.0.1", listener1);
+	        peer2 = new ChatAnonimaImplementazione(2, "127.0.0.1", listener2);
+	        peer3 = new ChatAnonimaImplementazione(3, "127.0.0.1", listener3);
+
 
 	        
-	        peer0.createRoom("Chat1", "password");
-	        peer1.joinRoom("Chat1", "password");
+	        peer3.createRoom("Chat6", "password");
+	        peer1.joinRoom("Chat6", "password");
+	        peer2.joinRoom("Chat6", "password");
+
 	        
 	        // Il Peer abbandona la Chat
-	        assertTrue(peer1.leaveRoom("Chat1","password"));
+	        assertTrue(peer1.leaveRoom("Chat6", "password"));
 	        
-	        // Il risultato sarà false perché il Peer è già uscito dalla rete
-	        assertFalse(peer1.leaveRoom("Chat1","password"));
+	        assertFalse(peer1.leaveRoom("Chat6", "password"));
+	        
+	        
+	        assertTrue(peer2.leaveRoom("Chat6", "password"));
+	        
+	        assertFalse(peer2.leaveRoom("Chat6", "password"));
+
        
 	}
 
